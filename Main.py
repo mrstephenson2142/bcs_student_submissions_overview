@@ -122,11 +122,9 @@ def getRequiredAssignments():
 
   response = requests.request("POST", url, headers=headers, json=payload)
   assignments = response.json()["calendarAssignments"]  
-  currentWeek =  response.json()["currentWeekAssignments"]  # list 
+  currentWeek =  response.json()["currentWeekAssignments"] 
 
-  #print(type(assignments[1]))
-
-  
+  # Creates a list of assignment titles
   a = []
   for i in assignments:
     
@@ -141,10 +139,9 @@ def getRequiredAssignments():
     
     if i['required'] == True and i['context']['contextCode'] == "academic":
       if datetime.strptime(i['dueDate'],'%Y-%m-%dT%H:%M:%SZ') > currentAssignment['dueDate']:
-        #print(i['id'], i['title'])
         currentAssignment = i
 
-  #print(currentWeek)
+  
 
 
 getRequiredAssignments()
@@ -301,12 +298,9 @@ for i in requiredAssignments:
     allDates.append(date)
 
 
-
-
 #####################################################################
 ##                        Google Sheets API                        ##   
 #####################################################################
-
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
@@ -322,35 +316,21 @@ service = build('sheets', 'v4', credentials=creds)
 
 # Call the Sheets API
 sheet = service.spreadsheets()
-#result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Main!A1:Z46", valueRenderOption="FORMULA").execute()
-
 
 # Clears 
 
 clear_values_request_body = {
-    # TODO: Add desired entries to the request body.
 }
-
 
 batch_clear_values_request_body = {
-
   'ranges' : [["Main!C3:ZZ"],["Main!A3:A"],["DueDates!A1:ZZ"],["Main!C1:ZZ1"]],
-
 }
 
-## Batch Clear
 request = sheet.values().batchClear(spreadsheetId=SAMPLE_SPREADSHEET_ID, body=batch_clear_values_request_body).execute()
 
-## Single Clear
-#request = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Main!C3:ZZ", body=clear_values_request_body).execute() # GRADES
-#request = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Main!A3:A", body=clear_values_request_body).execute() # NAMES
-
 # Updates 
-
-#aoa = [["foo",4000],["2/2/2020",5000],["5/5/2020",6000]]
 aoa = gradesOut
 students = namesOut
-
 
 ## Batch Updates
 
@@ -373,30 +353,7 @@ batch_update_values_request_body = {
           'range': "Main!C1",
           'values': assignmentTitles
         }
-
-
-
-
-    ],  # TODO: Update placeholder value.
-
-    # TODO: Add desired entries to the request body.
+    ],  
 }
 
 request = sheet.values().batchUpdate(spreadsheetId=SAMPLE_SPREADSHEET_ID, body=batch_update_values_request_body).execute()
-
-
-## Single Updates
-
-#request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Main!C3", valueInputOption="USER_ENTERED", body={"values":aoa}).execute() # GRADES
-#request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Main!A3", valueInputOption="USER_ENTERED", body={"values":students}).execute()  # Names
-#request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="DueDates!A1", valueInputOption="USER_ENTERED", body={"values":allDates}).execute() #DueDates
-
-
-
-
-
-
-
-#values = result.get('values', [])
-#print(result)
-
