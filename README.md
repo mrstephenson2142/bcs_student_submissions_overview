@@ -40,7 +40,7 @@ The script should populate students, homework names, and due dates. There is som
 See requirements files for resources on setting up some of these requirements. 
 
 - Create Google Project
-- Create Google Sheets API Service Account and Download Credentials JSON
+- Create Google Sheets API Service Account, Download Credentials JSON, and add to creds.json.
 - Copy of Template Spreadsheet
 - Grant Service Account Editor Permissoin to the Sheet. 
 - Install requirements `pip install -r requirements.txt`
