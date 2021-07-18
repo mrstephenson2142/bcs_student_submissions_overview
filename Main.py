@@ -6,6 +6,12 @@ from datetime import datetime
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
+#Copyright (c) 2021, Micheal Stephenson
+#All rights reserved.
+
+#This source code is licensed under the BSD-style license found in the
+#LICENSE file in the root directory of this source tree. 
+
 ##################
 ## GET PASSWORD ##
 ##################
