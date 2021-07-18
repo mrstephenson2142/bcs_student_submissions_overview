@@ -141,9 +141,6 @@ def getRequiredAssignments():
       if datetime.strptime(i['dueDate'],'%Y-%m-%dT%H:%M:%SZ') > currentAssignment['dueDate']:
         currentAssignment = i
 
-  
-
-
 getRequiredAssignments()
 
 #########################################
@@ -176,12 +173,8 @@ def getCurrentAssignmentStudents():
 
     if i['student']['active'] == True:
       currentStudents.append(i['student']['firstName']+" "+i['student']['lastName'] )
-  
-  
-
+ 
 getCurrentAssignmentStudents()
-
-
 
 ################
 ## GET GRADES ##
@@ -297,20 +290,15 @@ for i in requiredAssignments:
     date.append(i['dueDate'][:-10])
     allDates.append(date)
 
-
 #####################################################################
 ##                        Google Sheets API                        ##   
 #####################################################################
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-
-
 creds = None
 creds = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-
-
 
 service = build('sheets', 'v4', credentials=creds)
 
