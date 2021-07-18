@@ -15,14 +15,14 @@ You can use the links in the requirements section as reference. The YouTube vide
   - <https://www.youtube.com/watch?v=4ssigWmExak>
   - <https://developers.google.com/sheets/api/quickstart/python>
   - <https://developers.google.com/workspace/guides/create-project>
-- Google Sheets API Service Account 
+- Google Sheets API service account 
   - <https://developers.google.com/workspace/guides/create-credentials>
   - JSON containing service account credentials. 
-- Bootcamp Spot API Access
-- Copy of Template Spreadsheet
+- Bootcamp Spot API access
+- Copy of template spreadsheet
   - <https://docs.google.com/spreadsheets/d/1OS0NDblSJWLNY4y2nJZ7wEsb570NatAbbFCZ1wu7MOs/edit?usp=sharing>
-  - Do not change the names of the Sheets. 
-  - Grant the API Service account editor access to the spreadsheet. 
+  - Do not change the names of the sheets. 
+  - Grant the API service account editor permission to the spreadsheet. 
 
 
 # Limitations 
@@ -40,9 +40,9 @@ The script should populate students, homework names, and due dates. There is som
 See requirements files for resources on setting up some of these requirements. 
 
 - Create Google Project
-- Create Google Sheets API Service Account, Download Credentials JSON, and add to creds.json.
-- Copy of Template Spreadsheet
-- Grant Service Account Editor Permissoin to the Sheet. 
+- Create Google Sheets API service account, download credentials JSON, and add to creds.json.
+- Copy of template spreadsheet
+- Grant service account Editor permission to the sheet. 
 - Install requirements `pip install -r requirements.txt`
 
 ## Run the Script 
