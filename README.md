@@ -1,4 +1,4 @@
-# Bootcamp Spot Submission Overview
+# Bootcamp Spot Student Submissions Overview
 
 # Summary
 
