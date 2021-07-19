@@ -13,6 +13,10 @@ from google.oauth2 import service_account
 #   http://www.apache.org/licenses/LICENSE-2.0
 # Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
+# 
+# You might be asking yourself, "what's up with all these functions that aren't really used like functions". 
+# I was originally going a different direction and didn't see a need to change them back. 
+
 ######################
 ## GLOBAL VARIABLES ## 
 ######################
